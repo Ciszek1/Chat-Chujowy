@@ -68,7 +68,7 @@ app.get('/newmsg',cors(), (req, res) => {
   fs.writeFileSync("room/"+roomID+".json",json.toString(), {flag:'w'})
   newJson = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   res.contentType('application/json');
-  res.send(newJson)
+  res.send(newJson.toString())
 
 })
 })
