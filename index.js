@@ -2,6 +2,7 @@ const express = require('express')
 const hbs = require('hbs')
 var cors = require('cors')
 const app = express()
+fs = require('fs');
 
 
 app.use(cors())
@@ -16,11 +17,10 @@ app.get('/newmessage',cors(), (req, res) => {
   fs.open("data.txt", "a", (err, fd)=>{
     console.log("fd")
     fs.write(fd, value)})
-  res.status(200).end();
+    fs.readFile("data.txt", 'utf8', function (err,data) {res.send(data)})
 });
 app.get('/readmessage',cors(), (req, res) => {
 
-  fs = require('fs');
   fs.readFile("data.txt", 'utf8', function (err,data) {
   console.log(data);
   res.send(data);
