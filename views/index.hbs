@@ -65,7 +65,12 @@
         <button type="button" onclick="sendMsg()">send</button>
     </div>
     <script> 
-      document.getElementById("msgBox").innerHTML = "Connect to the main chat";
+      const urlParams = new URLSearchParams(queryString);
+      console.log(urlParams.get('room'))
+      if(urlParams.get('room') != ""){
+         document.getElementById("msgBox").innerHTML = "<b>Connect to the "+urlParams.get('room')+" chat</b>";
+      }
+      document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
 
       function sendMsg() {
         var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
