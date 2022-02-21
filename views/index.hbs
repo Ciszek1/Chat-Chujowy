@@ -11,7 +11,7 @@
   .then(response => response.text())
   .then(commits => {
     var text = commits.toString();
-    document.getElementById("ms").innerHTML = "<span>"+text+"</span>";
+    document.getElementById("ms").innerHTML = "<noscript>"+text+"</noscript>";
   });
       function click(params) {
         
