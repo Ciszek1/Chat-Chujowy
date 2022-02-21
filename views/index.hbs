@@ -105,7 +105,7 @@
         .then(res => {
           if(res == "Error"){
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
-                document.getElementById("sendButton").disable = true;
+                document.getElementById("sendButton").disabled = true;
 
           }else{
             var json = JSON.parse(res);
