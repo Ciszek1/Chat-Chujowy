@@ -14,3 +14,7 @@ body{
 #sendBox > input,button{
     width: auto;
 }
+#all{
+    width: 50vw;
+    height: 80vh;
+}
