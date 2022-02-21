@@ -67,12 +67,15 @@
     <script> 
       function getUrlVars() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
 
-      
+      var roomID=null;
+
       console.log(getUrlVars()['room'])
       if(getUrlVars()['room'] != ""){
          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
+         roomID=getUrlVars()['room'];
+      }else{
+        document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
       }
-      document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
 
       function sendMsg() {
         var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
