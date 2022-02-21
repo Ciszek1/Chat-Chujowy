@@ -20,7 +20,7 @@ app.get('/newmessage',cors(), (req, res) => {
   console.log(data)
   const now  =  new Date();
   const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
-  fs.writeFileSync("data.txt", nowDate+"-"+value+"<br/>",{flag:'a+'})
+  fs.writeFileSync("data.txt", nowDate+" - "+value+"<br/>",{flag:'a+'})
   var newData = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
   res.send(newData);
 });

@@ -9,7 +9,7 @@
     <button type="button" onclick="sendMsg()">send</button>
     <script> 
       function sendMsg() {
-        var text = document.getElementById("sendNick").value+": \""+document.getElementById("sendMessag").value+"\"";
+        var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
           .then(response => response.text())
           .then(res => {
