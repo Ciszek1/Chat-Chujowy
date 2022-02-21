@@ -112,7 +112,6 @@
         fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
         .then(res => {
-          x
           if(res == "Error"){
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
                 document.getElementById("sendButton").disabled = true;
