@@ -61,7 +61,7 @@
       <div id='msgBox'></div>
       <div id="sendBox">
         <input id="sendNick" type="text" placeholder="Nick"></input>
-        <input id="sendMessag" type="text" placeholder="massage"></input>
+        <input id="sendMessage" type="text" placeholder="Message"></input>
         <button type="button" onclick="sendMsg()">send</button>
     </div>
     <script> 
@@ -72,7 +72,7 @@
           .then(res => {
             var text = res.toString();
             document.getElementById("msgBox").innerHTML = text;
-            document.getElementById("sendMessag").value = "";
+            document.getElementById("sendMessage").value = "";
 
           });
       };
