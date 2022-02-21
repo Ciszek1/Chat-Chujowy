@@ -2,6 +2,7 @@ const app = require('express')()
 const hbs = require('hbs')
 var cors = require('cors')
 const fs = require('fs');
+const date = require('date-and-time')
 
 app.use(cors())
 app.set('view engine', 'hbs')
@@ -17,7 +18,9 @@ app.get('/newmessage',cors(), (req, res) => {
   console.log(value)
   var data = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
   console.log(data)
-  fs.writeFileSync("data.txt", value+"<br/>",{flag:'a+'})
+  const now  =  new Date();
+  const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
+  fs.writeFileSync("data.txt", nowDate+"-"+value+"<br/>",{flag:'a+'})
   var newData = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
   res.send(newData);
 });
