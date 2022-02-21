@@ -100,6 +100,9 @@
               });
               document.getElementById("msgBox").innerHTML = msg;
               document.getElementById("sendMessage").value = "";
+              document.getElementById("sendButton").disabled = true;
+              sleep(5000)
+              document.getElementById("sendButton").disabled = false;
             }
         })
       }};
