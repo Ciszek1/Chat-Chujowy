@@ -58,6 +58,9 @@ app.get('/newmsg',cors(), (req, res) => {
     if(msg.substring(1, 2) == "U" || msg.substring(1, 2) == "u"){
       msg = "<u>"+msg.substring(2)+"</u>";
     }
+    if(msg.substring(1, 5) == "LINK" || msg.substring(1, 2) == "link"){
+      msg = '<a href="'+msg.substring(5)+'">'+msg.substring(5)+"</a>";
+    }
   }
   if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
     nick = "Prvchat"
