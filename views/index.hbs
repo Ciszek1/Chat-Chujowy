@@ -62,7 +62,7 @@
       <div id="sendBox">
         <input id="sendNick" type="text" placeholder="Nick"></input>
         <input id="sendMessage" type="text" placeholder="Message"></input>
-        <button type="button" onclick="sendMsg()">send</button>
+        <button type="button" id="sendButton" onclick="sendMsg()">send</button>
     </div>
     <script> 
       function getUrlVars() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
@@ -105,6 +105,8 @@
         .then(res => {
           if(res == "Error"){
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
+                document.getElementById("sendButton").disable = true;
+
           }else{
             var json = JSON.parse(res);
             var msg="";
