@@ -5,5 +5,8 @@
     "hbs": "^4.2.0",
     "date-and-time" : "^2.1.2",
     "@supercharge/strings" : "^1.25.0"
-  }
+  },
+  "scripts": {
+    "start": "node index.js"
+ }
 }
