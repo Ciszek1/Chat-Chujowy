@@ -61,7 +61,7 @@ app.get('/newmsg',cors(), (req, res) => {
   }
   if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
     nick = "Prvchat"
-    msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u>";
+    msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><b>------</b><br/>:LINK <a href='https://google.pl/'>https://google.pl/</a>";
   }
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
