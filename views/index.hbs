@@ -65,9 +65,16 @@
         <button type="button" onclick="sendMsg()">send</button>
     </div>
     <script> 
-      const urlParams = new URLSearchParams(queryString);
-      console.log(urlParams.get('room'))
-      if(urlParams.get('room') != ""){
+      function getUrlVars() {
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+              vars[key] = value;
+          });
+          return vars;
+      }
+
+      console.log(getUrlVars()['room'])
+      if(getUrlVars()['room'] != ""){
          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+urlParams.get('room')+" chat</b>";
       }
       document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
