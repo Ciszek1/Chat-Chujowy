@@ -17,9 +17,9 @@ app.get('/newmessage',cors(), (req, res) => {
   console.log(value)
   fs.open("data.txt", "a", (err, fd)=>{
     console.log("fd")
-    fs.write(fd, value)})
-    fs.readFile("data.txt", 'utf8', function (err,data) {res.send(data)})
-});
+    fs.write(fd, value)});
+  res.send("ok");
+  });
 app.get('/readmessage',cors(), (req, res) => {
 
   fs.readFile("data.txt", 'utf8', function (err,data) {
