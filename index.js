@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
 app.get('/newmessage',cors(), (req, res) => {
   var value = req.param('value');
   console.log(value)
-  var fileData;
-  fs.readFile("data.txt", 'utf8',  (err,data)=> {fileData = data })
-  console.log(fileData)
+  fs.readFile("data.txt", 'utf8',  (err,data)=> {
+    console.log(data)
+  })
   res.send("ok");
 });
 
