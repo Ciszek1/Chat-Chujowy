@@ -12,10 +12,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/newmessage',cors(), (req, res) => {
-  console.log(req)
+  const value = req.query.value;
+  fs.open("data.txt", "a", (err, fd)=>{
+    console.log("fd")
+    fs.write(fd, value)})
   res.status(200).end();
 });
 app.get('/readmessage',cors(), (req, res) => {
+
   fs = require('fs');
   fs.readFile("data.txt", 'utf8', function (err,data) {
   console.log(data);

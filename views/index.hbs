@@ -6,7 +6,7 @@
     <div id='ms'></div>
     <input id="sendNick" type="text" placeholder="Nick"></input>
     <input id="sendMessag" type="text" placeholder="massage"></input>
-    <input type="button" value="send"></input>
+    <input type="button" value="send" onclick="click()"></input>
     <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
   .then(response => response.text())
   .then(commits => {
@@ -14,7 +14,8 @@
     document.getElementById("ms").innerHTML = text;
   });
       function click(params) {
-        
+        var text = document.getElementById("sendNick").text+": \""+document.getElementById("sendMessag").text+"\"<br/>";
+          fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage?value='+text);
       }
     </script>
   </body>
