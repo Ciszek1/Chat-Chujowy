@@ -3,6 +3,7 @@ const hbs = require('hbs')
 var cors = require('cors')
 const fs = require('fs');
 const date = require('date-and-time')
+const Str = require('@supercharge/strings')
 
 app.use(cors())
 app.set('view engine', 'hbs')
@@ -25,12 +26,27 @@ app.get('/newmessage',cors(), (req, res) => {
   res.send(newData);
 });
 
-
 //send list msg to user
 app.get('/readmessage',cors(), (req, res) => {
     fs.readFile("data.txt", 'utf8', function (err,data) {
     console.log(data);
     res.send(data);
 })});
+
+
+//New Room create
+app.get('/newroom',cors(), (req, res) => {
+  console.log("New room ID is:"+random_WithFiftySymbols = Str.random(50)  )
+});
+
+
+
+
+
+
+
+
+
+
 app.listen(process.env.PORT || 3000)
 
