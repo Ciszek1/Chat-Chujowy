@@ -80,7 +80,7 @@
         console.log("1_Connect to the main chat / "+roomID);
       }
 
-      function sendMsg() {
+      /*function sendMsg() {
         var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessage").value+"\"";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
           .then(response => response.text())
@@ -90,7 +90,7 @@
             document.getElementById("sendMessage").value = "";
 
           });
-      };
+      };*/
       function getMsg(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
