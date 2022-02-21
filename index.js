@@ -55,6 +55,15 @@ app.get('/getmsg',cors(), (req, res) => {
     console.log(data);
     
 })
+app.get('/newmsg',cors(), (req, res) => {
+  var roomID = req.query.roomID;
+  var nick = req.query.nick;
+  var msg = req.query.msg;
+  json = JSON.stringify(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
+  res.contentType('application/json');
+  res.send(json)
+
+})
 })
 
 

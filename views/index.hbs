@@ -104,7 +104,7 @@
             json.forEach(function (a){
                 msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg;
             });
-            document.getElementById("msgBox").innerHTML = json.toString()+"<br/>"+msg;
+            document.getElementById("msgBox").innerHTML = msg;
           }
       })};
       getMsg();
