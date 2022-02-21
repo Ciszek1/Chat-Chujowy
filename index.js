@@ -44,7 +44,9 @@ app.get('/newmsg',cors(), (req, res) => {
   var msg = req.query.msg;
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
-  console.log(msg.substring(0, 2))
+  if(msg.substring(0, 2) == "B:" || msg.substring(0, 2) == "b:"){
+    msg = "<b>"+msg.substring(2)+"</b>";
+  }
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   json.push({"nick":nick,"msg":msg,"date":nowDate})
