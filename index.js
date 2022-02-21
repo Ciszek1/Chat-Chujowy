@@ -47,6 +47,10 @@ app.get('/newmsg',cors(), (req, res) => {
   if(msg.substring(0, 2) == "B:" || msg.substring(0, 2) == "b:"){
     msg = "<b>"+msg.substring(2)+"</b>";
   }
+  if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
+    nick = "Prvchat"
+    msg = "Formating text: <br/> B: <b>This</b> <br/> I: <i>This</i> <br/> M: <mark>This</mark>";
+  }
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   json.push({"nick":nick,"msg":msg,"date":nowDate})
