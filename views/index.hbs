@@ -65,6 +65,8 @@
         <button type="button" onclick="sendMsg()">send</button>
     </div>
     <script> 
+      document.getElementById("msgBox").innerHTML = "Connect to the main chat";
+
       function sendMsg() {
         var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
