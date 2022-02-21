@@ -86,7 +86,7 @@
         console.log("1_Connect to the main chat / "+roomID);
       }
       function createRoom(){
-        fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID)
+        fetch(https://ciszek-test-nodejs.herokuapp.com/newroom)
           .then(response => response.text())
           .then(res => {
               location.href = res;
@@ -99,7 +99,7 @@
           }else{
           document.getElementById("sendButton").disabled = true;
           var text = "&nick="+document.getElementById("sendNick").value+"&msg="+document.getElementById("sendMessage").value;
-          fetch('https://ciszek-test-nodejs.herokuapp.com/newroom')
+          fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text)
           .then(response => response.text())
           .then(res => {
             if(res == "Error"){
