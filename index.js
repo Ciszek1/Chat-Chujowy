@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 //send add msg to server v1
 app.get('/newmessage',cors(), (req, res) => {
-  var value = req.params.value;
+  var value = req.query.value;
   console.log(value)
   var data = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
   console.log(data)
