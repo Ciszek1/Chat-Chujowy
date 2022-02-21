@@ -1,2 +1,2 @@
-Cisze: "witam"<br/>
-Cisze: "Witam w chujowej rozmowie!"<br/>
+2022/02/21 14:56:43 - <b>Cisze</b>: "witam"<br/>
+2022/02/21 14:56:43 - <b>Cisze</b>: "Witam w chujowej rozmowie!"<br/>
