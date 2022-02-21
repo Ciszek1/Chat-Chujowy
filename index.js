@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/newmessage',cors(), (req, res) => {
-  var value = req.query.value;
+  var value = req.param('value');
   console.log(value)
   fs.open("data.txt", "a", (err, fd)=>{
     console.log("fd")
