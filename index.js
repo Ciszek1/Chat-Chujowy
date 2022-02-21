@@ -64,7 +64,7 @@ app.get('/newmsg',cors(), (req, res) => {
 
 
   json = fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'})
-  json.push('{"nick":'+nick+',"msg":'+msg+',"date":'+nowDate+'}')
+  json.push({"nick":nick,"msg":msg,"date":nowDate})
   res.contentType('application/json');
   res.send(json)
 
