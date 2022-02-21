@@ -76,7 +76,8 @@
          console.log("1_Connect to the "+getUrlVars()['room']+" chat");
       }else{
         document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
-        console.log("1_Connect to the main chat");
+        roomID=0;
+        console.log("1_Connect to the main chat / "+roomID);
       }
 
       function sendMsg() {
