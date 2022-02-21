@@ -81,7 +81,7 @@
       }
 
       function sendMsg() {
-        var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
+        var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessage").value+"\"";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
           .then(response => response.text())
           .then(res => {
