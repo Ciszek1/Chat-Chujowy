@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
 
 //send add msg to server v1
 app.get('/newmessage',cors(), (req, res) => {
-  var value = req.param('value');
+  var value = req.query('value');
   console.log(value)
-  var data = readFileSync("./data.txt",{encoding: "utf8"})
+  var data = readFileSync("data.txt",{encoding:'utf8', flag:'r'})
   console.log(data)
   var newData = data+"\n"+value;
   fs.writeFileSync("data.txt", newData,{flag:'a+'})
