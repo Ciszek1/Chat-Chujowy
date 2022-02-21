@@ -8,7 +8,7 @@
     <input id="sendMessag" type="text" placeholder="massage"></input>
     <input type="button" value="send"></input>
     <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
-  .then(response => response.json())
+  .then(response => response.text())
   .then(commits => {
     var text = commits.toString();
     document.getElementById("ms").innerHTML = "<span>"+text+"</span>";
