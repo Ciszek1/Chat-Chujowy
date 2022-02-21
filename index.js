@@ -17,9 +17,10 @@ app.get('/newmessage',cors(), (req, res) => {
   console.log(value)
   fs.readFile("data.txt", 'utf8',  (err,data)=> {
     console.log(data)
-  })
-  res.send("ok");
-});
+    var newData = data+"\n"+value;
+    fs.writeFile("data.txt", newData)
+    res.send(newData);
+})});
 
 
 //send list msg to user
