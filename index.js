@@ -15,12 +15,12 @@ app.get('/', (req, res) => {
 app.get('/newmessage',cors(), (req, res) => {
   var value = req.param('value');
   console.log(value)
-  fs.readFile("data.txt", 'utf8',  (err,data)=> {
-    console.log(data)
-    var newData = data+"\n"+value;
-    fs.writeFile("data.txt", newData)
-    res.send(newData);
-})});
+  var data = readFileSync("data.txt","utf8")
+  console.log(data)
+  var newData = data+"\n"+value;
+  fs.writeFile("data.txt", newData)
+  res.send(newData);
+});
 
 
 //send list msg to user
