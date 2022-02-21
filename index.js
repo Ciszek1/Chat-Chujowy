@@ -1,9 +1,7 @@
-const express = require('express')
+const app = require('express')()
 const hbs = require('hbs')
 var cors = require('cors')
-const app = express()
-fs = require('fs');
-
+const fs = require('fs');
 
 app.use(cors())
 app.set('view engine', 'hbs')
@@ -21,11 +19,12 @@ app.get('/newmessage',cors(), (req, res) => {
   });
   res.send("ok");
   });
-app.get('/readmessage',cors(), (req, res) => {
-
-  fs.readFile("data.txt", 'utf8', function (err,data) {
-  console.log(data);
-  res.send(data);
-})});
 
 app.listen(process.env.PORT || 3000)
+
+module.exports = {
+  app,
+  hbs,
+  cors,
+  fs
+};
