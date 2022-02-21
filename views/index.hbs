@@ -73,8 +73,10 @@
       if(getUrlVars()['room'] != ""){
          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
          roomID=getUrlVars()['room'];
+         console.log("Connect to the "+getUrlVars()['room']+" chat");
       }else{
         document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
+        console.log("Connect to the main chat");
       }
 
       function sendMsg() {
