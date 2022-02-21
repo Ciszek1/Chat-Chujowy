@@ -14,7 +14,7 @@
     document.getElementById("ms").innerHTML = text;
   });
       function click(params) {
-        var text = document.getElementById("sendNick").text+": \""+document.getElementById("sendMessag").text+"\"<br/>";
+        var text = document.getElementById("sendNick").value+": \""+document.getElementById("sendMessag").value+"\"<br/>";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text);
       }
     </script>
