@@ -98,8 +98,12 @@
           if(res == "Error"){
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
           }else{
-            var json = JSON.parse(res)
-            document.getElementById("msgBox").innerHTML = json;
+            var json = JSON.parse(res);
+            const msg;
+            json.forEach(function (a){
+                msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg;
+            });
+            document.getElementById("msgBox").innerHTML = msg;
           }
       })};
       getMsg();
