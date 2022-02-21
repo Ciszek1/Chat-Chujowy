@@ -17,7 +17,8 @@ app.get('/newmessage',cors(), (req, res) => {
   console.log(value)
   fs.open("data.txt", "a", (err, fd)=>{
     console.log("fd")
-    fs.write(fd, value)});
+    //fs.write(fd, value)
+  });
   res.send("ok");
   });
 app.get('/readmessage',cors(), (req, res) => {
