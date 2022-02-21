@@ -9,8 +9,10 @@
     <input type="button" value="send"></input>
     <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
   .then(response => response.json())
-  .then(commits => function name(commits){console.log(commits);
-                                          document.getElementById("ms").innerHTML = commits});
+  .then(commits => {
+    console.log(commits);
+    document.getElementById("ms").innerHTML = commits;
+  });
       function click(params) {
         
       }
