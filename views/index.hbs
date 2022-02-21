@@ -60,7 +60,7 @@
   </head>
   <body>
     <div id="appName">Prv Chat</div>
-    <center><button type="button" id="ownButton" onclick="createRoom()">Create your own</button><button type="button" id="ownButton" onclick='location.href = "https://ciszek-test-nodejs.herokuapp.com/"'>Main chat</button></center>
+    <center><button type="button" id="ownButton" onclick="createRoom()">Create your own</button><button type="button" id="mainChat" onclick='location.href = "https://ciszek-test-nodejs.herokuapp.com/"'>Main chat</button></center>
     <div id="all">
       <div id='msgBox'></div>
       <div id="sendBox">
@@ -84,6 +84,10 @@
         document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
         roomID=0;
         console.log("1_Connect to the main chat / "+roomID);
+      }
+      if(roomID==1){
+        document.querySelector("#mainChat").innerHTML = "Second chat"
+        do
       }
       function createRoom(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/newroom')
