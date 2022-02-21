@@ -9,7 +9,7 @@
       }
       #msgBox{
           width: 100%;
-          height: 90%;
+          height: 95%;
       }
       #sendBox{
           width: 100%;
@@ -17,9 +17,11 @@
       }
       #sendBox > input{
           width: 38%;
+          height: -webkit-fill-available;
       }
       #sendBox > button{
           width: 18%;
+          height: -webkit-fill-available;
       }
       #all{
           width: 50vw;
@@ -38,7 +40,11 @@
       @media only screen and (max-width: 600px) {
           #all{
               width: 90vw;
-              height: 90vh;
+              height: 80vh;
+              font-size: 209%!important;
+          }
+          #sendBox > button, input{
+            font-size: 100%;
           }
       }
     </style>
