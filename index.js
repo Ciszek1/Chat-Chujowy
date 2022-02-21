@@ -44,12 +44,24 @@ app.get('/newmsg',cors(), (req, res) => {
   var msg = req.query.msg;
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
-  if(msg.substring(0, 2) == "B:" || msg.substring(0, 2) == "b:"){
-    msg = "<b>"+msg.substring(2)+"</b>";
+    
+  if(msg.substring(0, 1) == ":"){
+    if(msg.substring(1, 2) == "B" || msg.substring(1, 2) == "b"){
+      msg = "<b>"+msg.substring(2)+"</b>";
+    }
+    if(msg.substring(1, 2) == "I" || msg.substring(1, 2) == "i"){
+      msg = "<i>"+msg.substring(2)+"</i>";
+    }
+    if(msg.substring(1, 2) == "M" || msg.substring(1, 2) == "m"){
+      msg = "<mark>"+msg.substring(2)+"</mark>";
+    }
+    if(msg.substring(1, 2) == "U" || msg.substring(1, 2) == "u"){
+      msg = "<u>"+msg.substring(2)+"</u>";
+    }
   }
   if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
     nick = "Prvchat"
-    msg = "<br/>Formating text: <br/> B: <b>This</b> <br/> I: <i>This</i> <br/> M: <mark>This</mark>";
+    msg = "<br/>Formating text: <br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u>";
   }
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
