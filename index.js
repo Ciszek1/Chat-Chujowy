@@ -41,10 +41,10 @@ app.get('/newroom',cors(), (req, res) => {
 //send to user room msg
 app.get('/getmsg',cors(), (req, res) => {
   var roomID = req.query.roomID;
-  console.log(roomID)
   if(roomID == null){
     roomID=0;
   }
+  console.log(roomID)
 })
 
 
