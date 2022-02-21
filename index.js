@@ -36,7 +36,7 @@ app.get('/readmessage',cors(), (req, res) => {
 
 //New Room create
 app.get('/newroom',cors(), (req, res) => {
-  res.send("New room ID is:"+Str.random(50))
+  res.send("New room ID is:"+Str.random(10))
 });
 
 
