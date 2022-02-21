@@ -7,7 +7,7 @@
     <input id="sendNick" type="text" placeholder="Nick"></input>
     <input id="sendMessag" type="text" placeholder="massage"></input>
     <input type="button" value="send"></input>
-    <script> fetch('https://91f958f2-f424-45f8-a9ec-f4acb85df09a.id.repl.co/readmessage')
+    <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
   .then(response => response.json())
   .then(commits => function name(commits){console.log(commits);
                                           document.getElementById("ms").innerHTML = commits});
