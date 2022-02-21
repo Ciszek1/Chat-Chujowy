@@ -4,6 +4,6 @@
     "express": "^4.17.3",
     "hbs": "^4.2.0",
     "date-and-time" : "^2.1.2",
-    "supercharge/strings" : "^1.25.0"
+    "@supercharge/strings" : "^1.25.0"
   }
 }
