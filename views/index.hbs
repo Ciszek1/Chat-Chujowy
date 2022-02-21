@@ -119,6 +119,22 @@
             }
         })
       }};
+
+
+
+        input.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            sendMsg();
+          }
+        });
+
+
+
+
+
+
+
       function getMsg(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
