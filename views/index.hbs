@@ -81,14 +81,6 @@
       }
 
       function sendMsg() {
-        var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessage").value+"\"";
-          fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
-          .then(response => response.text())
-          .then(res => {
-            var text = res.toString();
-            document.getElementById("msgBox").innerHTML = text;
-
-          });
           var text = "&nick="+document.getElementById("sendNick").value+"&msg="+document.getElementById("sendMessage").value;
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text)
           .then(response => response.text())
