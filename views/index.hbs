@@ -100,6 +100,7 @@
               json.forEach(function (a){
                   msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg+"<br/>";
               });
+              oldMsg = document.getElementById("sendMessage").value;
               document.getElementById("msgBox").innerHTML = msg;
               document.getElementById("sendMessage").value = "";
               document.getElementById("sendButton").disabled = false;
@@ -111,6 +112,7 @@
         fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
         .then(res => {
+          x
           if(res == "Error"){
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
                 document.getElementById("sendButton").disabled = true;
