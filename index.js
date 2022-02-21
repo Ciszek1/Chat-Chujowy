@@ -49,7 +49,7 @@ app.get('/newmsg',cors(), (req, res) => {
   }
   if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
     nick = "Prvchat"
-    msg = "Formating text: <br/> B: <b>This</b> <br/> I: <i>This</i> <br/> M: <mark>This</mark>";
+    msg = "<br/>Formating text: <br/> B: <b>This</b> <br/> I: <i>This</i> <br/> M: <mark>This</mark>";
   }
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
