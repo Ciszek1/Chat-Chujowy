@@ -99,7 +99,7 @@
                 document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
           }else{
             var json = JSON.parse(res);
-            const msg;
+            var msg;
             
             json.forEach(function (a){
                 msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg;
