@@ -49,6 +49,7 @@ app.get('/getmsg',cors(), (req, res) => {
     if(err){
       res.send("Error");
     }else{
+      res.contentType('application/json');
       res.send(data);
     }
     console.log(data);
