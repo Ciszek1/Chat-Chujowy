@@ -46,8 +46,13 @@ app.get('/getmsg',cors(), (req, res) => {
   }
   console.log(roomID)
   fs.readFile("./room/"+roomID+".json", 'utf8', function (err,data) {
+    if(err){
+      res.send("Error");
+    }else{
+      res.send(data);
+    }
     console.log(data);
-    res.send(data+"err!!"+err);
+    
 })
 })
 
