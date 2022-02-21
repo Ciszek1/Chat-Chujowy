@@ -70,7 +70,7 @@
       var roomID=null;
 
       console.log(getUrlVars()['room'])
-      if(getUrlVars()['room'] != ""){
+      if(getUrlVars()['room'] != null){
          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
          roomID=getUrlVars()['room'];
          console.log("1_Connect to the "+getUrlVars()['room']+" chat");
