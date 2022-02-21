@@ -59,7 +59,12 @@ app.get('/newmsg',cors(), (req, res) => {
   var roomID = req.query.roomID;
   var nick = req.query.nick;
   var msg = req.query.msg;
-  json = JSON.stringify(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
+  const now  =  new Date();
+  const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
+
+
+  json = fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'})
+  json.push('{"nick":'+nick+',"msg":'+msg+',"date":'+nowDate+'}')
   res.contentType('application/json');
   res.send(json)
 
