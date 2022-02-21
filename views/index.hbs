@@ -20,12 +20,13 @@
           });
       }
 
-      fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
+      setTimeout(
+        fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
       .then(response => response.text())
       .then(res => {
         var text = res.toString();
         document.getElementById("ms").innerHTML = text;
-      });
+      }),5000)
     </script>
   </body>
 </html>
