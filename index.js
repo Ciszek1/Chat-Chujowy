@@ -39,7 +39,7 @@ app.get('/newroom',cors(), (req, res) => {
   res.send("New room ID is:"+Str.random(10))
 });
 //send to user room msg
-app.get('/getMsg',cors(), (req, res) => {
+app.get('/getmsg',cors(), (req, res) => {
   var roomID = req.query.roomID;
   console.log(roomID)
   if(roomID == null){
