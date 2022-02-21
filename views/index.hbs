@@ -100,10 +100,11 @@
           }else{
             var json = JSON.parse(res);
             const msg;
+            
             json.forEach(function (a){
                 msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg;
             });
-            document.getElementById("msgBox").innerHTML = msg;
+            document.getElementById("msgBox").innerHTML = json.toString()+"<br/>"+msg;
           }
       })};
       getMsg();
