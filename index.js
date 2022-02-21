@@ -60,7 +60,7 @@ app.get('/newmsg',cors(), (req, res) => {
   var nick = req.query.nick;
   var msg = req.query.msg;
   const now  =  new Date();
-  const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
+  const nowDate = date.format(now,'HH:mm');
 
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
