@@ -26,7 +26,6 @@ app.get('/getmsg',cors(), (req, res) => {
   if(roomID == null){
     roomID=0;
   }
-  console.log(roomID)
   fs.readFile("./room/"+roomID+".json", 'utf8', function (err,data) {
     if(err){
       res.send("Error");
@@ -34,7 +33,6 @@ app.get('/getmsg',cors(), (req, res) => {
       res.contentType('application/json');
       res.send(data);
     }
-    console.log(data);
     
 })
 
@@ -46,7 +44,7 @@ app.get('/newmsg',cors(), (req, res) => {
   var msg = req.query.msg;
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
-
+  console.log(msg.substring(0, 2))
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   json.push({"nick":nick,"msg":msg,"date":nowDate})
