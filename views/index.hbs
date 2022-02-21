@@ -8,12 +8,6 @@
     <input id="sendMessag" type="text" placeholder="massage"></input>
     <button type="button" onclick="click()">send</button>
     <script> 
-      fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
-      .then(response => response.text())
-      .then(res => {
-        var text = res.toString();
-        document.getElementById("ms").innerHTML = text;
-      });
       function click() {
         var text = document.getElementById("sendNick").value+": \""+document.getElementById("sendMessag").value+"\"<br/>";
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
@@ -21,10 +15,17 @@
           .then(res => {
             var text = res.toString();
             document.getElementById("ms").innerHTML = text;
-            document.getElementById("sendMessag").value = ""
+            document.getElementById("sendMessag").value = "";
 
           });
       }
+
+      fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
+      .then(response => response.text())
+      .then(res => {
+        var text = res.toString();
+        document.getElementById("ms").innerHTML = text;
+      });
     </script>
   </body>
 </html>
