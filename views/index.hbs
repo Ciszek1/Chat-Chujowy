@@ -68,6 +68,7 @@
       function getUrlVars() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
 
       var roomID=null;
+      var oldMsg="";
 
       console.log(getUrlVars()['room'])
       if(getUrlVars()['room'] != null){
@@ -81,9 +82,9 @@
       }
 
       function sendMsg() {
-          if(document.getElementById("sendNick").value =="" || document.getElementById("sendMessage").value==""){
+          if(document.getElementById("sendNick").value =="" || document.getElementById("sendMessage").value=="" || document.getElementById("sendMessage").value == oldMsg){
             var msg = document.getElementById("msgBox").innerHTML;
-            document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick";
+            document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick or you try spam</b>";
           }else{
           document.getElementById("sendButton").disabled = true;
           var text = "&nick="+document.getElementById("sendNick").value+"&msg="+document.getElementById("sendMessage").value;
