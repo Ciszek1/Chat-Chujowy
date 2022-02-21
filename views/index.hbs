@@ -87,6 +87,7 @@
       }
       if(roomID==0){
         document.querySelector("#mainChat").innerHTML = "Second chat";
+        document.querySelector("#mainChat").onclick = function(){location.href = "https://ciszek-test-nodejs.herokuapp.com/?room=1"}
       }
       function createRoom(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/newroom')
