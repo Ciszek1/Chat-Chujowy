@@ -22,4 +22,4 @@ app.get('/readmessage',cors(), (req, res) => {
   res.send(data);
 })});
 
-app.listen(1)
+app.listen(80)
