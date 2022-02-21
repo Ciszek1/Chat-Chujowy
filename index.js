@@ -10,21 +10,22 @@ app.get('/', (req, res) => {
   res.render("index");
 });
 
+
+//send add msg to server v1
 app.get('/newmessage',cors(), (req, res) => {
   var value = req.param('value');
   console.log(value)
-  fs.open("data.txt", "a", (err, fd)=>{
-    console.log("fd")
-    //fs.write(fd, value)
-  });
+  var fileData = fs.readFile("data.txt", 'utf8',  (err,data)=> {return data })
+  console.log(fileData)
   res.send("ok");
-  });
+});
 
+
+//send list msg to user
+app.get('/readmessage',cors(), (req, res) => {
+    fs.readFile("data.txt", 'utf8', function (err,data) {
+    console.log(data);
+    res.send(data);
+})});
 app.listen(process.env.PORT || 3000)
 
-module.exports = {
-  app,
-  hbs,
-  cors,
-  fs
-};
