@@ -63,7 +63,7 @@ app.get('/newmsg',cors(), (req, res) => {
   const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
 
 
-  json = fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'})
+  json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   json.push({"nick":nick,"msg":msg,"date":nowDate})
   res.contentType('application/json');
   res.send(json)
