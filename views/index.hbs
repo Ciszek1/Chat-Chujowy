@@ -81,6 +81,7 @@
       }
 
       function sendMsg() {
+          if(document.getElementById("sendNick").value =="" || document.getElementById("sendMessage").value=="")
           var text = "&nick="+document.getElementById("sendNick").value+"&msg="+document.getElementById("sendMessage").value;
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text)
           .then(response => response.text())
