@@ -36,7 +36,10 @@ app.get('/readmessage',cors(), (req, res) => {
 
 //New Room create
 app.get('/newroom',cors(), (req, res) => {
-  res.send("New room ID is:"+Str.random(10))
+  var roomID = Str.random(10);
+  fs.appendFile("./room/"+roomID+".json",'[{"msg":"<b>You have been connected to the '+roomID+' chat</b>","nick":"Prvchat","date":"00:00"}]', function(){
+    res.send("New room is created: <a href=\"https://ciszek-test-nodejs.herokuapp.com/?room="+roomID+"\">Click</a>")
+  })
 });
 //send to user room msg
 app.get('/getmsg',cors(), (req, res) => {
