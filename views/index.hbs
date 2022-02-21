@@ -82,7 +82,7 @@
 
       function sendMsg() {
           if(document.getElementById("sendNick").value =="" || document.getElementById("sendMessage").value==""){
-            var msg = document.getElementById("msgBox");
+            var msg = document.getElementById("msgBox").innerHTML;
             document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick";
           }else{
           var text = "&nick="+document.getElementById("sendNick").value+"&msg="+document.getElementById("sendMessage").value;
