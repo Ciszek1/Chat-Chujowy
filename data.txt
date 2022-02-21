@@ -1,2 +1,2 @@
-Cisze: "witam!"<br>
-Cisze: "Witam w chujowej rozmowie!"<br>
+<span>Cisze: witam<span/>
+<span>Cisze: "Witam w chujowej rozmowie!"</span>
