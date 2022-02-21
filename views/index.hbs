@@ -60,7 +60,7 @@
   </head>
   <body>
     <div id="appName">Prv Chat</div>
-    <button type="button" id="ownButton">Create your own</button>
+    <center><button type="button" id="ownButton">Create your own</button></center>
     <div id="all">
       <div id='msgBox'></div>
       <div id="sendBox">
@@ -79,12 +79,19 @@
          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
          roomID=getUrlVars()['room'];
          console.log("1_Connect to the "+getUrlVars()['room']+" chat");
+         document.getElementById("ownButton").disabled = true;
       }else{
         document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
         roomID=0;
         console.log("1_Connect to the main chat / "+roomID);
       }
-
+      function createRoom(){
+        fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text)
+          .then(response => response.text())
+          .then(res => {
+              location.href = res;
+          });
+      }
       function sendMsg() {
           if(document.getElementById("sendNick").value =="" || document.getElementById("sendMessage").value=="" || document.getElementById("sendMessage").value == oldMsg){
             var msg = document.getElementById("msgBox").innerHTML;
