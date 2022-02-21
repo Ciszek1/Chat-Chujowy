@@ -92,11 +92,15 @@
           });
       };
       function getMsg(){
-        fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
+        fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
         .then(res => {
-          var text = res.toString();
-          document.getElementById("msgBox").innerHTML = text;
+          if(res == "Error"){
+                document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
+          }else{
+            var json = JSON.parse(res)
+            document.getElementById("msgBox").innerHTML = json;
+          }
       })};
       getMsg();
       setInterval(getMsg,5000)
