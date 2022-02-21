@@ -10,7 +10,6 @@
     <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
   .then(response => response.json())
   .then(commits => {
-    console.log(commits);
     document.getElementById("ms").innerHTML = commits;
   });
       function click(params) {
