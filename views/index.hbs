@@ -18,15 +18,16 @@
             document.getElementById("sendMessag").value = "";
 
           });
-      }
-
-      setInterval(
+      };
+      function getMsg(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
-      .then(response => response.text())
-      .then(res => {
-        var text = res.toString();
-        document.getElementById("ms").innerHTML = text;
-      }),5000)
+        .then(response => response.text())
+        .then(res => {
+          var text = res.toString();
+          document.getElementById("ms").innerHTML = text;
+      })};
+
+      setInterval(getMsg(),5000)
     </script>
   </body>
 </html>
