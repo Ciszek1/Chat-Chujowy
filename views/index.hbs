@@ -6,16 +6,24 @@
     <div id='ms'></div>
     <input id="sendNick" type="text" placeholder="Nick"></input>
     <input id="sendMessag" type="text" placeholder="massage"></input>
-    <input type="button" value="send" onclick="click()"></input>
-    <script> fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
-  .then(response => response.text())
-  .then(commits => {
-    var text = commits.toString();
-    document.getElementById("ms").innerHTML = text;
-  });
+    <input type="button" value="send" onclick="click"></input>
+    <script> 
+      fetch('https://ciszek-test-nodejs.herokuapp.com/readmessage')
+      .then(response => response.text())
+      .then(res => {
+        var text = res.toString();
+        document.getElementById("ms").innerHTML = text;
+      });
       function click(params) {
         var text = document.getElementById("sendNick").value+": \""+document.getElementById("sendMessag").value+"\"<br/>";
-          fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text);
+          fetch('https://ciszek-test-nodejs.herokuapp.com/newmessage?value='+text)
+          .then(response => response.text())
+          .then(res => {
+            var text = res.toString();
+            document.getElementById("ms").innerHTML = text;
+            document.getElementById("sendMessag").value = ""
+
+          });
       }
     </script>
   </body>
