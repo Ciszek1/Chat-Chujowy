@@ -102,7 +102,7 @@
             var msg;
             
             json.forEach(function (a){
-                msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg;
+                msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg+"<br/>";
             });
             document.getElementById("msgBox").innerHTML = msg;
           }
