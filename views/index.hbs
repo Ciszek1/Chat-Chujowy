@@ -1,12 +1,15 @@
 <html>
   <head>
     <title>Shit chat</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id='ms'></div>
-    <input id="sendNick" type="text" placeholder="Nick"></input>
-    <input id="sendMessag" type="text" placeholder="massage"></input>
-    <button type="button" onclick="sendMsg()">send</button>
+    <div id="all">
+      <div id='msgBox'></div>
+      <input id="sendNick" type="text" placeholder="Nick"></input>
+      <input id="sendMessag" type="text" placeholder="massage"></input>
+      <button type="button" onclick="sendMsg()">send</button>
+    </div>
     <script> 
       function sendMsg() {
         var text = "<b>"+document.getElementById("sendNick").value+"</b>: \""+document.getElementById("sendMessag").value+"\"";
@@ -14,7 +17,7 @@
           .then(response => response.text())
           .then(res => {
             var text = res.toString();
-            document.getElementById("ms").innerHTML = text;
+            document.getElementById("msgBox").innerHTML = text;
             document.getElementById("sendMessag").value = "";
 
           });
@@ -24,7 +27,7 @@
         .then(response => response.text())
         .then(res => {
           var text = res.toString();
-          document.getElementById("ms").innerHTML = text;
+          document.getElementById("msgBox").innerHTML = text;
       })};
       getMsg();
       setInterval(getMsg,5000)
