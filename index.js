@@ -13,27 +13,6 @@ app.get('/', (req, res) => {
 });
 
 
-//send add msg to server v1
-app.get('/newmessage',cors(), (req, res) => {
-  var value = req.query.value;
-  console.log(value)
-  var data = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
-  console.log(data)
-  const now  =  new Date();
-  const nowDate = date.format(now,'YYYY/MM/DD HH:mm:ss');
-  fs.writeFileSync("data.txt", nowDate+" - "+value+"<br/>",{flag:'a+'})
-  var newData = fs.readFileSync("data.txt",{encoding:'utf8', flag:'r'})
-  res.send(newData);
-});
-
-//send list msg to user
-app.get('/readmessage',cors(), (req, res) => {
-    fs.readFile("data.txt", 'utf8', function (err,data) {
-    console.log(data);
-    res.send(data);
-})});
-
-
 //New Room create
 app.get('/newroom',cors(), (req, res) => {
   var roomID = Str.random(10);
@@ -58,6 +37,9 @@ app.get('/getmsg',cors(), (req, res) => {
     console.log(data);
     
 })
+
+
+//send new msg to server
 app.get('/newmsg',cors(), (req, res) => {
   var roomID = req.query.roomID;
   var nick = req.query.nick;
@@ -73,13 +55,6 @@ app.get('/newmsg',cors(), (req, res) => {
 
 })
 })
-
-
-
-
-
-
-
 
 
 app.listen(process.env.PORT || 3000)
