@@ -47,6 +47,11 @@ app.post('/newmsg',cors(), (req, res) => {
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
 
+
+
+  //Komendy/ochrona/style
+
+  //Ochrona prze elementami HTML do xxs
   var lt = "<", 
     gt = ">", 
     ap = "\'", 
@@ -55,6 +60,7 @@ app.post('/newmsg',cors(), (req, res) => {
     
     nick = nick.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
 
+  //wygląd np. <b>, <i>
   if(msg.substring(0, 1) == ":"){
     if(msg.substring(1, 2) == "B" || msg.substring(1, 2) == "b"){
       msg = "<b>"+msg.substring(2)+"</b>";
@@ -72,6 +78,12 @@ app.post('/newmsg',cors(), (req, res) => {
       msg = '<a href="'+msg.substring(5)+'" target=“_blank”>'+msg.substring(5)+"</a>";
     }
   }
+
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  msg = msg.replace(urlRegex, '<a href="$1">$1</a>')
+
+
+  //komenda popoc
   if(msg.substring(0, 1) == "/"){
     if(msg.substring(1, 5) == "help" || msg.substring(1, 5) == "Help"){
       msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><b>------</b><br/>:LINK <a href='https://google.pl/'>https://google.pl/</a><br/><br/><b>Command issued by "+nick+"</b>";
