@@ -77,7 +77,7 @@ app.post('/newmsg',cors(), (req, res) => {
   }
 
   var urlRegex = /(https?:\/\/[^\s]+)/g;
-  msg = msg.replace(urlRegex, '<a href="$1">$1</a>')
+  msg = msg.replace(urlRegex, '<a href="$1" target="_blank">$1</a>')
 
 
   //komenda popoc
