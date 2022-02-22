@@ -74,9 +74,6 @@ app.post('/newmsg',cors(), (req, res) => {
     if(msg.substring(1, 2) == "U" || msg.substring(1, 2) == "u"){
       msg = "<u>"+msg.substring(2)+"</u>";
     }
-    if(msg.substring(1, 5) == "LINK" || msg.substring(1, 5) == "link"){
-      msg = '<a href="'+msg.substring(5)+'" target=“_blank”>'+msg.substring(5)+"</a>";
-    }
   }
 
   var urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -86,7 +83,7 @@ app.post('/newmsg',cors(), (req, res) => {
   //komenda popoc
   if(msg.substring(0, 1) == "/"){
     if(msg.substring(1, 5) == "help" || msg.substring(1, 5) == "Help"){
-      msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><b>------</b><br/>:LINK <a href='https://google.pl/'>https://google.pl/</a><br/><br/><b>Command issued by "+nick+"</b>";
+      msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><br/><b>Command issued by "+nick+"</b>";
       nick = "Prvchat"
     }
   }
