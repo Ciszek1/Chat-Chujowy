@@ -105,7 +105,7 @@
           var msgToSend = document.getElementById("sendMessage").value.replace("&", "U0026");
           var nickToSend = document.getElementById("sendNick").value.replace("&", "U0026");
           var text = "&nick="+document.getElementById("sendNick").value.replace("&", "U0026")+"&msg="+document.getElementById("sendMessage").value.replace("&", "U0026");
-          fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text,{
+          fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID/*+text*/,{
     
           method: "POST",
           
