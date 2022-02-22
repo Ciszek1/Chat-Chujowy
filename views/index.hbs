@@ -106,7 +106,7 @@
 
 
       function createRoom(){
-        fetch('https://ciszek-test-nodejs.herokuapp.com/newroom')
+        fetch('https://prvchatdot.herokuapp.com/newroom')
           .then(response => response.text())
           .then(res => {
               location.href = res;
@@ -168,7 +168,7 @@
 
 
       function getMsg(){
-        fetch('https://ciszek-test-nodejs.herokuapp.com/getmsg?roomID='+roomID)
+        fetch('https://prvchatdot.herokuapp.com/getmsg?roomID='+roomID)
         .then(response => response.text())
         .then(res => {
           if(res == "Error"){
