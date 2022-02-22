@@ -83,7 +83,7 @@
 
       var roomID=null;
       var oldMsg="";
-      var nick="";
+      var nickAll="";
 
 
          if(getUrlVars()['room'] != null){
@@ -120,7 +120,7 @@
           }else{
           document.getElementById("sendButton").disabled = true;
           var msgToSend = document.getElementById("sendMessage").value;
-          var nickToSend = nick//document.getElementById("sendNick").value;
+          var nickToSend = nickAll;//document.getElementById("sendNick").value;
           fetch('https://prvchatdot.herokuapp.com/newmsg',{
     
           method: "POST",
@@ -188,6 +188,7 @@
       })};
       if(document.cookie.length!=0){
         console.log(document.cookie.split("=")[1])
+        nickAll=document.cookie.split("=")[1];
       }else{
          let foo = prompt('Type you nick');
          if(foo =! ""){
