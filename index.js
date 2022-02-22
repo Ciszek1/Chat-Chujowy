@@ -66,7 +66,7 @@ app.get('/newmsg',cors(), (req, res) => {
     if(msg.substring(1, 2) == "U" || msg.substring(1, 2) == "u"){
       msg = "<u>"+msg.substring(2)+"</u>";
     }
-    if(msg.substring(1, 5) == "LINK" || msg.substring(1, 2) == "link"){
+    if(msg.substring(1, 5) == "LINK" || msg.substring(1, 5) == "link"){
       msg = '<a href="'+msg.substring(5)+'" target=“_blank”>'+msg.substring(5)+"</a>";
     }
   }
