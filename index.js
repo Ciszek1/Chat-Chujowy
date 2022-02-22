@@ -1,4 +1,5 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
 const hbs = require('hbs')
 var cors = require('cors')
 const fs = require('fs');
@@ -7,6 +8,7 @@ const Str = require('@supercharge/strings')
 
 app.use(cors())
 app.set('view engine', 'hbs')
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.render("index");
@@ -39,7 +41,6 @@ app.get('/getmsg',cors(), (req, res) => {
 
 //send new msg to server
 app.post('/newmsg',cors(), (req, res) => {
-  app.use(express.json())
   var roomID = req.body.roomID;
   var nick = req.body.nick;
   var msg = req.body.msg;
