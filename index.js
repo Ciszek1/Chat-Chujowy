@@ -51,9 +51,9 @@ app.post('/newmsg',cors(), (req, res) => {
     gt = ">", 
     ap = "\'", 
     ic = "\"";
-    msg = msg.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;").replace("U0026", "&");
+    msg = msg.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
     
-    nick = nick.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;").replace("U0026", "&");
+    nick = nick.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
 
   if(msg.substring(0, 1) == ":"){
     if(msg.substring(1, 2) == "B" || msg.substring(1, 2) == "b"){

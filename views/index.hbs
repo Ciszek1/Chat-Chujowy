@@ -102,9 +102,8 @@
             document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick or you try spam</b>";
           }else{
           document.getElementById("sendButton").disabled = true;
-          var msgToSend = document.getElementById("sendMessage").value//.replace("&", "U0026");
-          var nickToSend = document.getElementById("sendNick").value//.replace("&", "U0026");
-          //var text = "&nick="+document.getElementById("sendNick").value.replace("&", "U0026")+"&msg="+document.getElementById("sendMessage").value.replace("&", "U0026");
+          var msgToSend = document.getElementById("sendMessage").value;
+          var nickToSend = document.getElementById("sendNick").value;
           fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg',{
     
           method: "POST",
