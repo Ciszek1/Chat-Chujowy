@@ -175,7 +175,7 @@
             document.getElementById("msgBox").innerHTML = msg;
           }
       })};
-      if(document.cookie != null){
+      if(document.cookie.split("=")[1] != ""){
         console.log(document.cookie.split("=")[1])
          getMsg();
         setInterval(getMsg,5000);
