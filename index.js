@@ -62,11 +62,13 @@ app.get('/newmsg',cors(), (req, res) => {
       msg = '<a href="'+msg.substring(5)+'" target=“_blank”>'+msg.substring(5)+"</a>";
     }
   }
-  if(msg.substring(0, 5) == "/help" || msg.substring(0, 5) == "/Help"){
-    msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><b>------</b><br/>:LINK <a href='https://google.pl/'>https://google.pl/</a><br/><br/><b>Command issued by "+nick+"</b>";
-    nick = "Prvchat"
-  
+  if(msg.substring(0, 1) == "/"){
+    if(msg.substring(1, 5) == "help" || msg.substring(1, 5) == "Help"){
+      msg = "<br/><b>Formating text: </b><br/> :B <b>This</b> <br/> :I <i>This</i> <br/> :M <mark>This</mark> <br/> :U <u>This</u><br/><b>------</b><br/>:LINK <a href='https://google.pl/'>https://google.pl/</a><br/><br/><b>Command issued by "+nick+"</b>";
+      nick = "Prvchat"
+    }
   }
+
 
   json = JSON.parse(fs.readFileSync("room/"+roomID+".json",{encoding:'utf8', flag:'r'}))
   json.push({"nick":nick,"msg":msg,"date":nowDate})
