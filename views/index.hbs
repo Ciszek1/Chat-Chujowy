@@ -190,7 +190,7 @@
         console.log(document.cookie.split("=")[1])
       }else{
          let foo = prompt('Type you nick');
-         if(foo =! null){
+         if(foo =! ""){
             console.log(foo)
             document.cookie = "name="+foo;
          }else{
