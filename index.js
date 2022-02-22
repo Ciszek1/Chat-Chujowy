@@ -7,6 +7,7 @@ const Str = require('@supercharge/strings')
 
 app.use(cors())
 app.set('view engine', 'hbs')
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.render("index");
