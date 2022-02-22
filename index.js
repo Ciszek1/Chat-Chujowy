@@ -44,6 +44,7 @@ app.post('/newmsg',cors(), (req, res) => {
   var roomID = req.body.roomID;
   var nick = req.body.nick;
   var msg = req.body.msg;
+  console.log(roomID+"/\\"+nick+"/\\"+msg)
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
 
