@@ -111,8 +111,8 @@
           
           body: JSON.stringify({
               roomID: roomID,
-              Nick: nickToSend,
-              Msg: msgToSend
+              nick: nickToSend,
+              msg: msgToSend
           })})
           .then(response => response.text())
           .then(res => {
