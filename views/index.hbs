@@ -102,8 +102,18 @@
             document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick or you try spam</b>";
           }else{
           document.getElementById("sendButton").disabled = true;
+          var msgToSend = document.getElementById("sendMessage").value.replace("&", "U0026");
+          var nickToSend = document.getElementById("sendNick").value.replace("&", "U0026");
           var text = "&nick="+document.getElementById("sendNick").value.replace("&", "U0026")+"&msg="+document.getElementById("sendMessage").value.replace("&", "U0026");
-          fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text)
+          fetch('https://ciszek-test-nodejs.herokuapp.com/newmsg?roomID='+roomID+text,{
+    
+          method: "POST",
+          
+          body: JSON.stringify({
+              roomID: roomID,
+              Nick: nickToSend,
+              Msg: msgToSend
+          })
           .then(response => response.text())
           .then(res => {
             if(res == "Error"){
