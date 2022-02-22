@@ -190,10 +190,10 @@
         console.log(document.cookie.split("=")[1])
         nickAll=document.cookie.split("=")[1];
       }else{
-         let foo = prompt('Type you nick');
+         var newNick = prompt('Type you nick');
          if(foo =! ""){
-            console.log(foo)
-            document.cookie = "name="+foo;
+            console.log(newNick)
+            document.cookie = "name="+newNick;
          }else{
             alert("You didn't type anything")
             window.location.reload();
