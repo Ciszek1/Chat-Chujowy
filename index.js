@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 //New Room create
 app.get('/newroom',cors(), (req, res) => {
   var roomID = Str.random(10);
-  fs.appendFile("./room/"+roomID+".json",'[{"msg":"<b>You have been connected to the '+roomID+' chat</b>","nick":"Prvchat","date":"00:00"}]', function(){
+  fs.appendFile("./room/"+roomID+".json",'[{"msg":"<b>You have been connected to the '+roomID+' chat. You can use /help to learn more</b>","nick":"Prvchat","date":"00:00"}]', function(){
     res.send("https://ciszek-test-nodejs.herokuapp.com/?room="+roomID)
   })
 });
