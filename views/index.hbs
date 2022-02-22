@@ -75,20 +75,27 @@
       var oldMsg="";
 
       console.log(getUrlVars()['room'])
-      if(getUrlVars()['room'] != null){
-         document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
-         roomID=getUrlVars()['room'];
-         console.log("1_Connect to the "+getUrlVars()['room']+" chat");
-         document.getElementById("ownButton").disabled = true;
-      }else{
-        document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
-        roomID=0;
-        console.log("1_Connect to the main chat / "+roomID);
-      }
-      if(roomID==0){
-        document.querySelector("#mainChat").innerHTML = "Second chat";
-        document.querySelector("#mainChat").onclick = function(){location.href = "https://ciszek-test-nodejs.herokuapp.com/?room=1"}
-      }
+
+         if(getUrlVars()['room'] != null){
+          document.getElementById("msgBox").innerHTML = "<b>Connect to the "+getUrlVars()['room']+" chat</b>";
+          roomID=getUrlVars()['room'];
+          console.log("1_Connect to the "+getUrlVars()['room']+" chat");
+          document.getElementById("ownButton").disabled = true;
+        }else{
+          document.getElementById("msgBox").innerHTML = "<b>Connect to the main chat</b>";
+          roomID=0;
+          console.log("1_Connect to the main chat / "+roomID);
+        }
+        if(roomID==0){
+          document.querySelector("#mainChat").innerHTML = "Second chat";
+          document.querySelector("#mainChat").onclick = function(){location.href = "https://ciszek-test-nodejs.herokuapp.com/?room=1"}
+        }
+
+
+
+
+
+
       function createRoom(){
         fetch('https://ciszek-test-nodejs.herokuapp.com/newroom')
           .then(response => response.text())
@@ -168,8 +175,28 @@
             document.getElementById("msgBox").innerHTML = msg;
           }
       })};
-      getMsg();
-      setInterval(getMsg,5000)
+      document.cookie = "name=ciszek"
+      console.log(document.cookie.split("=")[1])
+      if(document.cookie != null){
+         getMsg(document.cookie);
+        setInterval(getMsg,5000);
+        console.log
+      }else{
+         let foo = prompt('Type you nick');
+         if(foo =! null){
+            console.log(foo)
+         }
+      }
+
+
+
+
+
+
+
+
+
+
     </script>
   </body>
 </html>
