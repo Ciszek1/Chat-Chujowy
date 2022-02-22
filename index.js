@@ -44,7 +44,15 @@ app.get('/newmsg',cors(), (req, res) => {
   var msg = req.query.msg;
   const now = new Date();
   const nowDate = date.format(now,'HH:mm');
+
+  var lt = "<", 
+    gt = ">", 
+    ap = "\'", 
+    ic = "\"";
+    msg = msg.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
     
+    nick = nick.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
+
   if(msg.substring(0, 1) == ":"){
     if(msg.substring(1, 2) == "B" || msg.substring(1, 2) == "b"){
       msg = "<b>"+msg.substring(2)+"</b>";
