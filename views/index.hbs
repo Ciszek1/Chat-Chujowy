@@ -114,7 +114,7 @@
           });
       }
       function sendMsg() {
-          if/*document.getElementById("sendNick").value =="" || */document.getElementById("sendMessage").value=="" || document.getElementById("sendMessage").value == oldMsg){
+          if(/*document.getElementById("sendNick").value =="" || */document.getElementById("sendMessage").value=="" || document.getElementById("sendMessage").value == oldMsg){
             var msg = document.getElementById("msgBox").innerHTML;
             document.getElementById("msgBox").innerHTML = msg+"<br><b>No message or nick or you try spam</b>";
           }else{
