@@ -90,7 +90,9 @@
 
 
 
-
+      if(document.cookie.length!=0){
+          document.getElementById("sendNick").value = document.cookie.split("=")[1];
+      }
 
 
       function createRoom(){
@@ -121,6 +123,7 @@
           })})
           .then(response => response.text())
           .then(res => {
+            document.cookie = "name="+document.getElementById("sendNick").value;
             if(res == "Error"){
                   document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
             }else{
