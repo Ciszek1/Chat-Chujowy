@@ -56,9 +56,9 @@ app.post('/newmsg',cors(), (req, res) => {
     gt = ">", 
     ap = "\'", 
     ic = "\"";
-    msg = msg.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
+    msg = msg.toString().replaceAll(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
     
-    nick = nick.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
+    nick = nick.toString().replaceAll(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
 
   //wygląd np. <b>, <i>
   if(msg.substring(0, 1) == ":"){
@@ -77,7 +77,7 @@ app.post('/newmsg',cors(), (req, res) => {
   }
 
   var urlRegex = /(https?:\/\/[^\s]+)/g;
-  msg = msg.replace(urlRegex, '<a href="$1" target="_blank">$1</a>')
+  msg = msg.replaceAll(urlRegex, '<a href="$1" target="_blank">$1</a>')
 
 
   //komenda popoc
