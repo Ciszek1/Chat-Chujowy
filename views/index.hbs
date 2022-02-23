@@ -151,13 +151,14 @@
                   document.getElementById("msgBox").innerHTML = "<b>Error: Chat does not exist</b>";
             }else{
               var json = JSON.parse(res);
-              var msg="";
+              var newMsg="";
               
               json.forEach(function (a){
-                  msg=msg+a.date+" -  <b>"+a.nick+"</b>: "+a.msg+"<br/>";
+                  const {date,nick,msg} = a;
+                  newMsg=`${newMsg}${date} -  <b>${nick}</b>: ${msg}<br/>`;
               });
               oldMsg = document.getElementById("sendMessage").value;
-              document.getElementById("msgBox").innerHTML = msg;
+              document.getElementById("msgBox").innerHTML = newMsg;
               document.getElementById("sendMessage").value = "";
               document.getElementById("sendButton").disabled = false;
               
